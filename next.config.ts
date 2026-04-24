@@ -1,10 +1,13 @@
-import type { NextConfig } from "next";
-
 const nextConfig: NextConfig = {
     experimental: {
         serverActions: {
             bodySizeLimit: '100mb',
-        }
+        },
+        turbo: {
+            rules: {
+                '*.svg': ['@svgr/webpack'],
+            },
+        },
     },
     typescript: {
         ignoreBuildErrors: true,
@@ -12,10 +15,7 @@ const nextConfig: NextConfig = {
     images: {
         remotePatterns: [
             { protocol: 'https', hostname: 'covers.openlibrary.org' },
-            // { protocol: 'https', hostname: 'lspfdyhgsrgsxcju.public.blob.vercel-storage.com' }, 
             { protocol: 'https', hostname: 'hi0kzbfamjtwi345.public.blob.vercel-storage.com' },
         ]
     }
 };
-
-export default nextConfig;
